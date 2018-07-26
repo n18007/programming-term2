@@ -1,24 +1,42 @@
-# 7/17(火) 課題
+cur_pos = [0, 0] # 現在位置
+direction = [1, 0] # いま右に向いてるから[1, 0]
 
-## 問題1
+def go_forward():
+    global cur_pos, direction
+    cur_pos[0] += direction[0]
+    cur_pos[1] += direction[1]
+    print("現在位置はx={0},y={1}です。".format(cur_pos[0], cur_pos[1]))
 
-下記のヒントにステージ2-10のコードを、サンプルとして提示します。
+def turn_right():
+    global direction
+    if direction == [0, 1]:
+        # いま上に向いていたら右に向きを変える
+        direction = [1, 0]
+    elif direction == [1, 0]:
+        # いま右に向いていたら下に向きを変える
+        direction = [0, -1]
+    elif direction == [0, -1]:
+        # いま下に向いていたら左に向きを変える
+        direction = [-1, 0]
+    else:
+        # いま左に向いていたら上に向きを変える
+        direction = [0, 1]
+            
+def turn_left():
+    global direction
+    if direction == [0, 1]:
+        # いま上に向いていたら左に向きを変える
+        direction = [-1, 0]
+    elif direction == [-1, 0]:
+        # いま左に向いていたら下に向きを変える
+        direction = [0, -1]
+    elif direction == [0, -1]:
+        # いま下に向いていたら右に向きを変える
+        direction = [1, 0]
+    else:
+        # いま左に向いていたら上に向きを変える
+        direction = [0, 1]
 
-同様にリストを用いてステージ2-11〜13をプログラム化してください。
-
-## 要求仕様
-
-画面でやったアルゴリズム通りに緑の悪者の所までたどり着いてください。
-
-## ヒント
-
-src/argo-s2/task20180726_s2_10.py  
-を参照してください。
-
-## 提出先Path
-
-~/programming-term2/src/algo-s2/task20180726_s2_[nn].py
-
-## 納期
-
-7/31(水) 13:49
+# メイン処理
+while cur_pos != [5, 0]:
+    go_forward()
