@@ -1,4 +1,4 @@
-import calc_tax
+from calc_tax import calc_incl_tax as cit
 
 def exec():
     """
@@ -27,15 +27,20 @@ def exec():
         'Orange': 3
     }
     money = 2000    # 所持金
-    total_ex_tax = 0    # 税抜き合計
+    ex_tax_list = []    # 税抜き合計
     res_list = []   # 結果として返すリスト
 
     for name, price in unit_dc.items():
-        # TODO:各商品の小計をメッセージとして格納(passは仮のコードなので削除すること)
-        pass
+        item_total = price * nums_dc[name]
+        ex_tax_list.append(item_total)
+        res_list.append("{0}を{1}個買いました。商品計は{2}です。".format(name, nums_dc[name], item_total))
 
-    # TODO:税抜き総額と、消費税計算した税込み総額を得る
-    # TODO:残金を算出する
+    # 税抜き総額と、消費税計算した税込み総額を得る
+    total_incl_tax = cit(sum(ex_tax_list))
+    res_list.append("総計の税抜き額は{0}円、税込額は{1}円です。".format(sum(ex_tax_list), total_incl_tax))
+    # 残金を算出する
+    money -= total_incl_tax
+    res_list.append("残金は{0}円です。".format(money))
 
     return res_list
 
