@@ -2,7 +2,9 @@
 apple_price = 200
 apple_count = 8
 
-# TODO:apple_priceとapple_countを掛けた結果を、変数total_priceに代入してください
+total_price = apple_price * apple_count
+print(total_price) #apple_priceとapple_countを掛けた結果を、変数total_priceに代入してください
 
 
-# TODO:total_priceの値を出力してください
+total_price = 1600
+print(1600)# total_priceの値を出力してください

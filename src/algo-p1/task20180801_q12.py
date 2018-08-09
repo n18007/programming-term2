@@ -1,10 +1,10 @@
 # 購入するりんごの個数を、プログラム実行時に入力しよう。
 apple_price = 200
 
-# TODO:inputを用いて入力を受け取り、変数input_countに代入してください
+input_count=input()#inputを用いて入力を受け取り、変数input_countに代入してください
 
 
-# TODO:input_countを数値として、変数countに代入してください(ヒント：型変換)
+count=int(input_count)#input_countを数値として、変数countに代入してください(ヒント：型変換)
 
 total_price = apple_price * count
 
